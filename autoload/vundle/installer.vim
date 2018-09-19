@@ -417,7 +417,7 @@ func! s:make_sync_command(bang, bundle) abort
 
     let initial_sha = s:get_current_sha(a:bundle)
   else
-    let cmd = 'git clone --recursive '.vundle#installer#shellesc(a:bundle.uri).' '.vundle#installer#shellesc(a:bundle.path())
+    let cmd = 'git clone --recurse-submodules '.vundle#installer#shellesc(a:bundle.uri).' '.vundle#installer#shellesc(a:bundle.path())
     let rev = get(a:bundle, 'rev', '')
     if (rev != '')
       let cmd = cmd.' -b '.vundle#installer#shellesc(rev)
